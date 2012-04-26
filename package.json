@@ -1,0 +1,13 @@
+{
+  "author": "",
+  "name": "appgen",
+  "version": "0.0.0",
+  "repository": {
+    "url": ""
+  },
+  "engines": {
+    "node": "~0.6.15"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
