@@ -1,10 +1,12 @@
 
 var vows   = require('vows')
 var assert = require('assert')
+var gex    = require('gex')
 
 var stepman = require('../lib/stepman.js')
 var slotman = require('../lib/slotman.js')
 var resman  = require('../lib/resman.js')
+var genlog  = require('../lib/genlog.js')
 
 
 
@@ -64,6 +66,21 @@ vows.describe('basic').addBatch({
           assert.equal('css/app.css',desc.path)
         })
       })
+    }
+  },
+
+  'genlog': {
+    topic: function() {
+      return new genlog.GenLog()
+    },
+
+    'happy': function( genlog ) {
+      var fork = {name:'main'}
+      genlog.log(fork,'step',{a:1})
+      genlog.log(fork,'cond',{a:2})
+      var s = genlog.toString()
+      console.log(s)
+      assert.ok(gex('{"when":"*T*Z","fork":"main","type":"step","desc":{"a":1}}\n{"when":"*T*Z","fork":"main","type":"cond","desc":{"a":2}}\n').on(s))
     }
   }
 

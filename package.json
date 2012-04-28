@@ -9,9 +9,9 @@
     "node": "~0.6.15"
   },
   "dependencies": {
-    "node-tmdb": "git://github.com/raqqa/node-tmdb.git"
   },
   "devDependencies": {
-    "vows":"*"
+    "vows":"*",
+    "gex":"*"
   }
 }
