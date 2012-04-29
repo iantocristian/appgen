@@ -9,6 +9,8 @@
     "node": "~0.6.15"
   },
   "dependencies": {
+    "eyes":"*",
+    "underscore":"*"
   },
   "devDependencies": {
     "vows":"*",
