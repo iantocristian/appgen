@@ -1,2 +1,3 @@
-- desc should be pref - refer to model
+- json spec file, run as cmd line
+- add template, set slots, update when slots match
 
