@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "eyes":"*",
-    "underscore":"*"
+    "underscore":"*",
+    "optimist":"*"
   },
   "devDependencies": {
     "vows":"*",

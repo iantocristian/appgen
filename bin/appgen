@@ -1,0 +1,79 @@
+#!/usr/bin/env node
+
+
+var common = require('../lib/common')
+
+var fs   = common.fs
+var path = common.path
+
+
+var eyes = common.eyes
+
+
+var AppGen = common.appgen.AppGen
+
+
+
+function err(win) {
+  return function(err,data) {
+    if( err ) {
+      common.exitmsg( err.message || err )
+    }
+    else win(data);
+  }
+}
+
+function fileerr(win) {
+  return function(err,data) {
+    if( err ) {
+      if( 'ENOENT' === err.code ) {
+        common.exitmsg( "can't read file: "+err.path )
+      }
+      else {
+        common.exitmsg( err.message || err )
+      }
+    }
+    else win(data);
+  }
+}
+
+
+
+function loadspecfile(specfilepath,cb) {
+  fs.readFile(specfilepath,'utf8',fileerr(function( text ){
+    var spec = JSON.parse(text)
+    cb(spec)
+  }))
+}
+
+
+
+var argv = common.optimist
+    .usage("Usage: appgen specfile.json")
+    .check(function(argv){
+      if( undefined == argv._[0] )      throw 'Error: no specfile.json';
+      if( !/\.json$/.test(argv._[0]) )  throw 'Error: specfile must have .json suffix';
+      return true
+    })
+    .argv
+
+
+var appgen
+var specfilepath = argv._[0]
+var specfolder = path.dirname(specfilepath)
+console.log(specfolder)
+
+loadspecfile(specfilepath,function(spec){
+  eyes.inspect(spec)
+
+  appgen = new AppGen({
+    spec:spec,
+    msgs:{
+      print:function(msg){console.log(msg)},
+      error:function(msg){console.error(msg)}
+    }
+  })
+  
+})
+
+
