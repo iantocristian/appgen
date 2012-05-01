@@ -1,3 +1,6 @@
-- json spec file, run as cmd line
+- fork - proper deep copies, deep overrides
 - add template, set slots, update when slots match
+- dynamic step load/definition - require
+
+
 

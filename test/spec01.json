@@ -2,5 +2,19 @@
   "res": {
     "base": "base01",
     "gen": "gen01"
-  }
+  },
+
+  "pref":{
+    "platform":"web",
+    "version":"0.0.1"
+  },
+  
+  "steps": [
+    {"name":"fork","opts":{"forks":[
+      {"name":"ios","spec":{"pref":{"platform":"ios"}}},
+      {"name":"android","spec":{"pref":{"platform":"android"}}}
+    ]}},
+    {"name":"save","opts":{"path":"README-#{pref.platform}.txt","src":"README.txt"}}
+  ]
 }
+

@@ -73,6 +73,8 @@ loadspecfile(specfilepath,function(spec){
       error:function(msg){console.error(msg)}
     }
   })
+
+  appgen.exec()
   
 })
 

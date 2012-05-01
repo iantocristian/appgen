@@ -1,0 +1,4 @@
+
+
+- file paths in spec.json are relative to spec.json folder
+

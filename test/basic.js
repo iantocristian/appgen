@@ -33,6 +33,11 @@ vows.describe('basic').addBatch({
         assert.equal( condman.conds[i++], cond )
       }
     },
+
+    'make': function( stepman ) {
+      var dp = stepman.make({name:'datepoint',opts:{name:'a'}})
+      assert.equal(dp.name, 'datepoint')
+    }
   },
 
   'slotman': {
@@ -80,7 +85,7 @@ vows.describe('basic').addBatch({
       genlog.log(fork,'cond',{a:2})
       var s = genlog.toString()
       console.log(s)
-      assert.ok(gex('{"when":"*T*Z","fork":"main","type":"step","desc":{"a":1}}\n{"when":"*T*Z","fork":"main","type":"cond","desc":{"a":2}}\n').on(s))
+      assert.ok(gex('{"fork":"main","type":"step","desc":{"a":1},"when":"*T*Z"}\n{"fork":"main","type":"cond","desc":{"a":2},"when":"*T*Z"}\n').on(s))
     }
   }
 
