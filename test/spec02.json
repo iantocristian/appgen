@@ -1,0 +1,21 @@
+{
+  "res": {
+    "base": "base01",
+    "gen": "gen01"
+  },
+
+  "pref":{
+    "a":1,"b":2
+  },
+  
+  "steps": [
+    {"name":"datepoint","opts":{"index":1}},
+    {"name":"fork","opts":{"forks":[
+      {"name":"red",   "spec":{"pref":{"b":21,"c":31}}},
+      {"name":"green", "spec":{"pref":{"b":22,"c":32}}},
+      {"name":"blue",  "spec":{"pref":{"b":23,"c":33}}}
+    ]}},
+    {"name":"datepoint","opts":{"index":2}}
+  ]
+}
+

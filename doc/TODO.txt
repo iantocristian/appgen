@@ -1,4 +1,4 @@
-- fork - proper deep copies, deep overrides
+- fork - proper deep copies
 - add template, set slots, update when slots match
 - dynamic step load/definition - require
 
