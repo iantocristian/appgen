@@ -1,0 +1,14 @@
+{
+  res:
+    base: "base01",
+    gen: "gen01"
+
+  pref:
+    a:1
+  
+  steps: [
+    { name:'save', opts:{ path:'www/index.html' } },
+  ]
+}
+
+

@@ -4,7 +4,6 @@ var assert = require('assert')
 var gex    = require('gex')
 
 var stepman = require('../lib/stepman.js')
-var slotman = require('../lib/slotman.js')
 var resman  = require('../lib/resman.js')
 var genlog  = require('../lib/genlog.js')
 
@@ -38,22 +37,6 @@ vows.describe('basic').addBatch({
       var dp = stepman.make({name:'datepoint',opts:{name:'a'}})
       assert.equal(dp.name, 'datepoint')
     }
-  },
-
-  'slotman': {
-    topic: function() {
-      return new slotman.SlotMan()
-    },
-
-    'api': function( slotman ) {
-      assert.equal(null,slotman.get('a'))
-      slotman.add({name:'a'})
-      assert.deepEqual({name:'a'},slotman.get('a'))
-      var slota = slotman.consume('a')
-      assert.deepEqual({name:'a'},slota)
-      assert.equal(null,slotman.get('a'))
-      assert.equal(null,slotman.consume('a'))
-    },
   },
 
   'resman': {

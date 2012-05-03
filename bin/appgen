@@ -8,6 +8,7 @@ var path = common.path
 
 
 var eyes = common.eyes
+var CSON = common.cson
 
 
 var AppGen = common.appgen.AppGen
@@ -41,8 +42,15 @@ function fileerr(win) {
 
 function loadspecfile(specfilepath,cb) {
   fs.readFile(specfilepath,'utf8',fileerr(function( text ){
-    var spec = JSON.parse(text)
-    cb(spec)
+    var spec 
+    if( specfilepath.match(/json$/ )  ) {
+      spec = JSON.parse(text)
+      cb(spec)
+    }
+    else if( specfilepath.match(/cson$/ ) ) {
+      spec = CSON.parseSync(text)
+      cb(spec)
+    }
   }))
 }
 
@@ -52,7 +60,7 @@ var argv = common.optimist
     .usage("Usage: appgen specfile.json")
     .check(function(argv){
       if( undefined == argv._[0] )      throw 'Error: no specfile.json';
-      if( !/\.json$/.test(argv._[0]) )  throw 'Error: specfile must have .json suffix';
+      if( !/\.[cj]son$/.test(argv._[0]) )  throw 'Error: specfile must have .json or .cson suffix';
       return true
     })
     .argv

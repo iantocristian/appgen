@@ -2,3 +2,6 @@
 
 - file paths in spec.json are relative to spec.json folder
 
+- save step - src is optional, ==path if not provided
+
+

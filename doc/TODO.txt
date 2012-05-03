@@ -1,4 +1,4 @@
-- implement slots: add template, set slots, update when slots match
+- nice error handling
 - dynamic step load/definition - require
 
 

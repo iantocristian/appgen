@@ -14,12 +14,16 @@ vows.describe('common').addBatch({
     },
 
     'interpolate': function( common ) {
+      common.interpolate('#{a}',{},function(){ console.log('CB') })
+
       assert.equal( common.interpolate('',{}), '' )
       assert.equal( common.interpolate('-#{p1}-',{p1:'v1'}), '-v1-' )
       assert.equal( common.interpolate('#{p1}-#{p2}-#{p1}',{p1:'v1',p2:'v2'}), 'v1-v2-v1' )
 
       assert.equal( common.interpolate('-+#{p2}+-',{p1:'+#{p2}+',p2:'v2'}), '-+v2+-' )
       assert.equal( common.interpolate('-#{p1}-',{p1:'+#{p2}+',p2:'v2'}), '-+v2+-' )
+
+      try { common.interpolate('#{a}',{},'required'); assert.fail() } catch(e) {}
 
       // TODO: test error handling
     },
