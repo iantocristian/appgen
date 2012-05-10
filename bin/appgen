@@ -55,6 +55,10 @@ function loadspecfile(specfilepath,cb) {
 }
 
 
+function cmdlinespec( argv, spec ) {
+  spec.pref = common.deepoverride(spec.pref, argv.pref || {})
+} 
+
 
 var argv = common.optimist
     .usage("Usage: appgen specfile.json")
@@ -69,16 +73,27 @@ var argv = common.optimist
 var appgen
 var specfilepath = argv._[0]
 var specfolder = path.dirname(specfilepath)
-console.log(specfolder)
+
 
 loadspecfile(specfilepath,function(spec){
+
+  cmdlinespec(argv,spec)
+
   eyes.inspect(spec)
 
   appgen = new AppGen({
     spec:spec,
     msgs:{
       print:function(msg){console.log(msg)},
-      error:function(msg){console.error(msg)}
+      error:function(err){
+        var forkname = err.ctxt.name
+        var stepI = err.ctxt.stepman.stepI-1
+        var steps = err.ctxt.stepman.steps
+        var stepname = err.ctxt.stepman.steps[stepI].name
+        var stepopts = err.ctxt.stepman.steps[stepI].opts
+        console.error('ERROR: '+err.message+
+                      ', STEP: '+forkname+':'+stepI+':'+stepname+' '+JSON.stringify(stepopts))
+      }
     }
   })
 

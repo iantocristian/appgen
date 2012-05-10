@@ -4,4 +4,5 @@
 
 - save step - src is optional, ==path if not provided
 
+- step def - opts==opt
 

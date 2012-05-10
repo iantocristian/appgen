@@ -1,0 +1,14 @@
+{
+  res:
+    base: "base01",
+    gen: "gen01"
+
+  pref:
+    die: 'callback'
+  
+  steps: [
+    { name:'error', opts:{msg:'errtest'} },
+  ]
+}
+
+
