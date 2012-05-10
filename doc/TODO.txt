@@ -1,5 +1,4 @@
-- error handling in appgen - cmdline tests
-- nice process reporting - multiple verbose levels 1. print forks, 2. print steps etc
+- mini app, including ejs templating step
 - dynamic step load/definition - require
 
 

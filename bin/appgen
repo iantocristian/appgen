@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
 
+"use strict";
+
 var common = require('../lib/common')
 
 var fs   = common.fs
 var path = common.path
 
-
+var _    = common._
 var eyes = common.eyes
 var CSON = common.cson
 
@@ -74,27 +76,32 @@ var appgen
 var specfilepath = argv._[0]
 var specfolder = path.dirname(specfilepath)
 
+// verbose = 0,1,2
+// 0 = quiet
+// 1 = forks
+// 2 = all
+var verbose = Math.min(2,Math.max(0, _.isNumber(argv.verbose) ? argv.verbose : argv.V ? 2 : argv.v ? 1 : 0 ))
 
 loadspecfile(specfilepath,function(spec){
 
   cmdlinespec(argv,spec)
 
-  eyes.inspect(spec)
-
   appgen = new AppGen({
     spec:spec,
     msgs:{
       print:function(msg){console.log(msg)},
+
       error:function(err){
         var forkname = err.ctxt.name
         var stepI = err.ctxt.stepman.stepI-1
         var steps = err.ctxt.stepman.steps
         var stepname = err.ctxt.stepman.steps[stepI].name
         var stepopts = err.ctxt.stepman.steps[stepI].opts
-        console.error('ERROR: '+err.message+
+        console.error('\nERROR: '+err.message+
                       ', STEP: '+forkname+':'+stepI+':'+stepname+' '+JSON.stringify(stepopts))
       }
-    }
+    },
+    verbose:verbose
   })
 
   appgen.exec()
