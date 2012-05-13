@@ -6,7 +6,7 @@
 var common = require('../lib/common')
 
 var fs   = common.fs
-var path = common.path
+var fspath = common.fspath
 
 var _    = common._
 var eyes = common.eyes
@@ -74,7 +74,7 @@ var argv = common.optimist
 
 var appgen
 var specfilepath = argv._[0]
-var specfolder = path.dirname(specfilepath)
+var specfolder = fspath.dirname(specfilepath)
 
 // verbose = 0,1,2
 // 0 = quiet

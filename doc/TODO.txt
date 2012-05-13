@@ -1,5 +1,7 @@
+- reslist properly sequential, each func returns object, handle binary files
+- error cond: interpolate prop not found in spec
 - mini app, including ejs templating step
 - dynamic step load/definition - require
-
+- maek spec parse errors pretty
 
 

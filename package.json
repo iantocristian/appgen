@@ -12,7 +12,8 @@
     "eyes":"*",
     "underscore":"*",
     "optimist":"*",
-    "cson":"*"
+    "cson":"*",
+    "glob":"*"
   },
   "devDependencies": {
     "vows":"*",

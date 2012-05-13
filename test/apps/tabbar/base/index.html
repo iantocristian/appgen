@@ -1,0 +1,86 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>#{name} TabBar</title> 
+  <meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" /> 
+  <meta name="apple-mobile-web-app-three-bar-style" content="default" /> 
+
+  <link rel="stylesheet" href="css/jquery.mobile.css" />
+  <link rel="stylesheet" href="css/jquery.mobile.structure.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/app.css" />
+
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.mobile.js"></script>
+  <script src="js/underscore.js"></script>
+  <script src="js/backbone.js"></script>
+  <script src="js/iscroll.js"></script>
+  <script src="js/app.js"></script>
+</head> 
+<body> 
+
+<div id="main" data-role="page">
+
+  <div id="header" data-role="header">
+    <h1>#{name} TabBar</h1>
+  </div>
+
+  <div id="content" data-role="content">	
+
+    <div id="content_one" class="content scroller">
+      <div class="content-area">
+
+        <ul data-role="listview" class="ui-listview">
+	  <li>100</li>
+	  <li>101</li>
+	</ul>
+
+      </div>
+    </div>
+
+    <div id="content_two" class="content scroller">
+      <div class="content-area">
+
+        <ul data-role="listview" class="ui-listview">
+	  <li>200</li>
+	  <li>201</li>
+	</ul>
+
+      </div>
+    </div>
+
+    <div id="content_three" class="content scroller">
+      <div class="content-area">
+      </div>
+    </div>
+
+    <div id="content_four" class="content scroller">
+      <div class="content-area">
+      </div>
+    </div>
+
+    <div id="content_five" class="content scroller">
+      <div class="content-area">
+      </div>
+    </div>
+
+  </div>
+
+  <div id="footer" data-role="footer" class="ui-bar custom-tabbar" data-position="fixed">
+    <div data-role="navbar" class="ui-navbar">
+      <ul id="tabbar" class="ui-grid custom-tabbar">
+        <li><a id="tab_one"   data-icon="custom">One</a></li>
+        <li><a id="tab_two"   data-icon="custom">Two</a></li>
+        <li><a id="tab_three" data-icon="custom">Three</a></li>
+        <li><a id="tab_four"  data-icon="custom">Four</a></li>
+        <li><a id="tab_five"  data-icon="custom">Five</a></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

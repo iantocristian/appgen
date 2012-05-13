@@ -1,0 +1,87 @@
+
+div {
+  padding: 0px !important;
+}
+
+ul {
+  margin: 0px !important;
+}
+
+p {
+  margin: 0px !important;
+}
+
+div.content {
+  display: none;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}
+
+div.leftin {
+  -webkit-animation-duration: .4s;
+  -webkit-animation-name: leftin;
+}
+
+div.rightin {
+  -webkit-animation-duration: .4s;
+  -webkit-animation-name: rightin;
+}
+
+
+@-Webkit-keyframes leftin {
+  from { 
+    -webkit-transform: translateX(100%);
+  }
+  to { 
+    -webkit-transform: translateX(0);
+   }
+}
+
+
+@-webkit-keyframes rightin {
+  from { 
+    -webkit-transform: translateX(-100%);
+  }
+  to { 
+    -webkit-transform: translateX(0);
+   }
+}
+
+
+
+
+.custom-tabbar .ui-btn .ui-btn-inner { 
+    padding-top: 40px !important; 
+}
+
+.custom-tabbar .ui-btn .ui-icon { 
+    width: 40px!important; height: 30px!important; margin-left: -20px !important; 
+    box-shadow: none!important; -moz-box-shadow: none!important; 
+    -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; 
+    border-radius: 0 !important; 
+}
+
+
+ul.custom-tabbar .ui-icon {
+    margin-top: 6px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat; 
+    background-color: transparent;
+    background-size: 14px;
+}
+
+
+
+ul.custom-tabbar .ui-icon { background-image: url(../img/circle-lo.png) }
+ul.custom-tabbar a.ui-btn-active .ui-icon { background-image: url(../img/circle-hi.png) }
+
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+
+ul.custom-tabbar .ui-icon { background-image: url(../img/circle-lo@2x.png) }
+ul.custom-tabbar a.ui-btn-active .ui-icon { background-image: url(../img/circle-hi@2x.png) }
+
+}
+
+
