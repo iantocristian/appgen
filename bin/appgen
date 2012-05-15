@@ -62,14 +62,19 @@ function cmdlinespec( argv, spec ) {
 } 
 
 
+
 var argv = common.optimist
-    .usage("Usage: appgen specfile.json")
-    .check(function(argv){
-      if( undefined == argv._[0] )      throw 'Error: no specfile.json';
-      if( !/\.[cj]son$/.test(argv._[0]) )  throw 'Error: specfile must have .json or .cson suffix';
-      return true
-    })
-    .argv
+  .usage("Usage: appgen specfile.json")
+  .boolean('v')
+  .boolean('V')
+  .check(function(argv){
+    if( undefined == argv._[0] )         throw 'Error: no specfile.json';
+    if( !/\.[cj]son$/.test(argv._[0]) )  throw 'Error: specfile must have .json or .cson suffix';
+    return true
+  })
+  .argv
+
+
 
 
 var appgen
