@@ -96,7 +96,7 @@ loadspecfile(specfilepath,function(spec){
     msgs:{
       print:function(msg){console.log(msg)},
 
-      error:function(err){
+      error:function(err,mode){
         var forkname = err.ctxt.name
         var stepI = err.ctxt.stepman.stepI-1
         var steps = err.ctxt.stepman.steps
@@ -104,6 +104,10 @@ loadspecfile(specfilepath,function(spec){
         var stepopts = err.ctxt.stepman.steps[stepI].opts
         console.error('\nERROR: '+err.message+
                       ', STEP: '+forkname+':'+stepI+':'+stepname+' '+JSON.stringify(stepopts))
+
+        if( mode.stack ) {
+          console.error(err.stack)
+        }
       }
     },
     verbose:verbose

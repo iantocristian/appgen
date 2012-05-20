@@ -6,3 +6,4 @@
 
 - step def - opts==opt
 
+- opt is the standard (not opts)

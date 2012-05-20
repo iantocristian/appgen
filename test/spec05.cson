@@ -1,0 +1,32 @@
+{
+  res:
+    base: "base01",
+    gen:  "gen01"
+
+  pref:
+    foo: 'bar'
+    color: {r:1,g:2,b:3}
+    nums: ['one','two','three']
+
+  steps: [
+    { name:'print', opt:{ msg:'first' } }
+    { name:'print', opt:{ msg:'#{pref.foo}' } }
+    { name:'print', opt:{ msg:'-#{pref.foo}-' } }
+    { name:'print', opt:{ msg:'##{pref.foo}' } }
+    { name:'print', opt:{ msg:{a:1} } }
+    { name:'print', opt:{ msg:'#{pref.color}' } }
+
+    { name:'iterate', opt:{ 
+      list: ['aa','bb','cc'],
+      index:0,
+      steps:[{ name:'print', opt:{ msg:'#{gen.item}' } }]
+    }}
+
+    { name:'each', opt:{
+      of:'#{pref.nums}',
+      steps:[{ name:'print', opt:{ msg:'#{gen.item}' } }]
+    }}
+  ]
+}
+
+

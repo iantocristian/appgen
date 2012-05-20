@@ -14,7 +14,8 @@
       {"name":"ios","spec":{"pref":{"platform":"ios"}}},
       {"name":"android","spec":{"pref":{"platform":"android"}}}
     ]}},
-    {"name":"save","opts":{"path":"README-#{pref.platform}.txt","src":"README.txt"}}
+    {"name":"load","opts":{"path":"README.txt"}},
+    {"name":"save","opts":{"path":"README-#{pref.platform}.txt"}}
   ]
 }
 

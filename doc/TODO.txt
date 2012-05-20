@@ -1,6 +1,6 @@
-- binary files
+- define template: load, iterate, interpolate, ejs, save
 - mini app, including ejs templating step
 - dynamic step load/definition - require
-- maek spec parse errors pretty
+- make spec parse errors pretty
 
 

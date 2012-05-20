@@ -1,0 +1,30 @@
+{
+  res:
+    base: "base01",
+    gen: "gen01"
+
+  pref:
+    a: 'AAA'
+
+  gen:
+    reslist: []
+  
+  macro: {
+    template:{steps:[
+      { name:'load', argopt:'load'},
+      { name:'each', opt:{
+          of:'#{gen.reslist}'
+          steps:[
+            { name:'echo', opt:{msg:'#{gen.item}'}},            
+          ]                     
+      }},
+
+    ]}
+  }
+
+  steps: [
+    { name:'template', opt:{ load:{path:'www/*.html'}, save:{path:''} } }
+  ]
+}
+
+
