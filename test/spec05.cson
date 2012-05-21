@@ -22,10 +22,14 @@
       steps:[{ name:'print', opt:{ msg:'#{gen.item}' } }]
     }}
 
+    { name:'print', opt:{ msg:'after iterate' } }
+
     { name:'each', opt:{
       of:'#{pref.nums}',
       steps:[{ name:'print', opt:{ msg:'#{gen.item}' } }]
     }}
+
+    { name:'print', opt:{ msg:'after each' } }
   ]
 }
 

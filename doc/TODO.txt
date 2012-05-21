@@ -1,6 +1,8 @@
-- define template: load, iterate, interpolate, ejs, save
+- define template: ejs
+- terse format steps: print:{msg:'aa'}
 - mini app, including ejs templating step
 - dynamic step load/definition - require
+- make jsonquery errors pretty
 - make spec parse errors pretty
 
 
