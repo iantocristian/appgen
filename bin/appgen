@@ -98,12 +98,12 @@ loadspecfile(specfilepath,function(spec){
 
       error:function(err,mode){
         var forkname = err.ctxt.name
-        var stepI = err.ctxt.stepman.stepI-1
-        var steps = err.ctxt.stepman.steps
+        var stepI    = err.ctxt.stepman.stepI-1
+        var steps    = err.ctxt.stepman.steps
         var stepname = err.ctxt.stepman.steps[stepI].name
-        var stepopts = err.ctxt.stepman.steps[stepI].opts
+        var stepopt  = err.ctxt.stepman.steps[stepI].opt
         console.error('\nERROR: '+err.message+
-                      ', STEP: '+forkname+':'+stepI+':'+stepname+' '+JSON.stringify(stepopts))
+                      ', STEP: '+forkname+':'+stepI+':'+stepname+' '+JSON.stringify(stepopt))
 
         if( mode.stack ) {
           console.error(err.stack)

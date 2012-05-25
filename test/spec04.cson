@@ -7,7 +7,7 @@
     die: 'callback'
   
   steps: [
-    { name:'error', opts:{msg:'errtest'} },
+    { name:'error', opt:{msg:'errtest'} },
   ]
 }
 

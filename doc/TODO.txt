@@ -1,6 +1,6 @@
-- define template: ejs
-- terse format steps: print:{msg:'aa'}
+- use ${...} for interpolation
 - mini app, including ejs templating step
+- proper step tests
 - dynamic step load/definition - require
 - make jsonquery errors pretty
 - make spec parse errors pretty

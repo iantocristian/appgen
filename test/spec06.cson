@@ -30,7 +30,7 @@
             { name:'load',  opt:{path:'#{gen.item}'}},
 
             { name:'insert',  opt:{on:'gen.resource.text'}},
-            #{ name:'ejs',  opt:{on:'gen.resource.text',meta:'#{gen.resource}'}},
+            { name:'ejs',     opt:{on:'gen.resource.text'}},
 
             { name:'print', opt:{msg:'resource=#{gen.resource}'}},
             { name:'save',  opt:{}},

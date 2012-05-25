@@ -4,17 +4,25 @@
     gen:  "gen01"
 
   pref:
-    foo: 'bar'
-    color: {r:1,g:2,b:3}
-    nums: ['one','two','three']
+    fail: false,
+    pass: true,
+    foo: 'bar',
+    color: {r:1,g:2,b:3},
+    nums: ['one','two','three'],
 
   steps: [
-    { name:'print', opt:{ msg:'first' } }
-    { name:'print', opt:{ msg:'#{pref.foo}' } }
-    { name:'print', opt:{ msg:'-#{pref.foo}-' } }
-    { name:'print', opt:{ msg:'##{pref.foo}' } }
-    { name:'print', opt:{ msg:{a:1} } }
-    { name:'print', opt:{ msg:'#{pref.color}' } }
+    { name:'print', msg:'first'}
+    { name:'print', msg:'#{pref.foo}'}
+    { name:'print', msg:'-#{pref.foo}-'}
+    { name:'print', msg:'##{pref.foo}'}
+    { name:'print', msg:{a:1}}
+    { name:'print', msg:'#{pref.color}'}
+
+
+    { name:'print', opt:{ if:"pref.fail", msg:'FAIL' } }
+    { name:'print', opt:{ if:"pref.pass", msg:'PASS' } }
+
+    { name:'expect', opt:{ expect:'cathy', value:'#{opt.alice}', alice:'#{opt.bob}', bob:'cathy' } }
 
     { name:'iterate', opt:{ 
       list: ['aa','bb','cc'],
@@ -24,12 +32,13 @@
 
     { name:'print', opt:{ msg:'after iterate' } }
 
-    { name:'each', opt:{
-      of:'#{pref.nums}',
+    { name:'for', opt:{
+      each:'#{pref.nums}',
       steps:[{ name:'print', opt:{ msg:'#{gen.item}' } }]
     }}
 
     { name:'print', opt:{ msg:'after each' } }
+
   ]
 }
 

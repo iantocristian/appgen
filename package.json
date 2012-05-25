@@ -2,6 +2,7 @@
   "author": "",
   "name": "appgen",
   "version": "0.0.0",
+  "main":"lib/appgen",
   "repository": {
     "url": ""
   },
@@ -13,7 +14,8 @@
     "underscore":"*",
     "optimist":"*",
     "cson":"*",
-    "glob":"*"
+    "glob":"*",
+    "ejs":"*"
   },
   "devDependencies": {
     "vows":"*",

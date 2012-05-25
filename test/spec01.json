@@ -6,7 +6,8 @@
 
   "pref":{
     "platform":"web",
-    "version":"0.0.1"
+    "version":"0.0.1",
+    "ext":"txt"
   },
   
   "steps": [
@@ -14,8 +15,8 @@
       {"name":"ios","spec":{"pref":{"platform":"ios"}}},
       {"name":"android","spec":{"pref":{"platform":"android"}}}
     ]}},
-    {"name":"load","opts":{"path":"README.txt"}},
-    {"name":"save","opts":{"path":"README-#{pref.platform}.txt"}}
+    {"name":"load","opts":{"path":"README.#{pref.ext}"}},
+    {"name":"save","opts":{"path":"README-#{pref.platform}.#{pref.ext}"}}
   ]
 }
 
