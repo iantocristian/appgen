@@ -1,8 +1,14 @@
-- use ${...} for interpolation
+- genlog print of step needs to be standardised, esp. dynamically required steps
+
 - mini app, including ejs templating step
 - proper step tests
-- dynamic step load/definition - require
-- make jsonquery errors pretty
 - make spec parse errors pretty
+- pref for interpolate chars
 
+- asset pipelining steps
+- external command step
+
+- watch trigger
+
+                                   
 

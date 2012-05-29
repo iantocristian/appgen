@@ -7,3 +7,6 @@
 - step def - opts==opt
 
 - opt is the standard (not opts)
+
+- custom steps load as modules relative to spec file folder
+

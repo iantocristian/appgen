@@ -13,7 +13,7 @@ var stepman = common.stepman
 function execerror(test,opts) {
 
   try {
-    var err = new stepman.ErrorStep(opts).exec({spec:{pref:{}}},function(err){ test.callback(null,{err:err,how:'callback'}) })
+    var err = new stepman.ErrorStep(opts).exec({spec:{conf:{}}},function(err){ test.callback(null,{err:err,how:'callback'}) })
     if( err ) {
       return {err:err,how:'return'}
     }

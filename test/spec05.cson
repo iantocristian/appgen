@@ -3,7 +3,7 @@
     base: "base01",
     gen:  "gen01"
 
-  pref:
+  conf:
     fail: false,
     pass: true,
     foo: 'bar',
@@ -12,33 +12,37 @@
 
   steps: [
     { name:'print', msg:'first'}
-    { name:'print', msg:'#{pref.foo}'}
-    { name:'print', msg:'-#{pref.foo}-'}
-    { name:'print', msg:'##{pref.foo}'}
+    { name:'print', msg:'${conf.foo}'}
+    { name:'print', msg:'-${conf.foo}-'}
+    { name:'print', msg:'$${conf.foo}'}
     { name:'print', msg:{a:1}}
-    { name:'print', msg:'#{pref.color}'}
+    { name:'print', msg:'${conf.color}'}
 
 
-    { name:'print', opt:{ if:"pref.fail", msg:'FAIL' } }
-    { name:'print', opt:{ if:"pref.pass", msg:'PASS' } }
+    { name:'print', opt:{ if:"conf.fail", msg:'FAIL' } }
+    { name:'print', opt:{ if:"conf.pass", msg:'PASS' } }
 
-    { name:'expect', opt:{ expect:'cathy', value:'#{opt.alice}', alice:'#{opt.bob}', bob:'cathy' } }
+    { name:'expect', opt:{ expect:'cathy', value:'${opt.alice}', alice:'${opt.bob}', bob:'cathy' } }
 
-    { name:'iterate', opt:{ 
-      list: ['aa','bb','cc'],
-      index:0,
-      steps:[{ name:'print', opt:{ msg:'#{gen.item}' } }]
+    { name:  'iterate', opt:{ 
+      list:  ['aa','bb','cc'],
+      index: 0,
+      steps: [{ name:'print', opt:{ msg:'${gen.item}' } }]
     }}
 
     { name:'print', opt:{ msg:'after iterate' } }
 
     { name:'for', opt:{
-      each:'#{pref.nums}',
-      steps:[{ name:'print', opt:{ msg:'#{gen.item}' } }]
+      each:'${conf.nums}',
+      steps:[{ name:'print', opt:{ msg:'${gen.item}' } }]
     }}
 
-    { name:'print', opt:{ msg:'after each' } }
+    { name:'print', opt:{ msg:'block: ${conf.block}' } }
 
+    { name:'block', 'if':'conf.block', steps:[
+      { name:'print', msg:'inside block 1' },
+      { name:'print', msg:'inside block 2' }
+    ]}
   ]
 }
 

@@ -3,7 +3,7 @@
     base: "base01",
     gen: "gen01"
 
-  pref:
+  conf:
     die: 'callback'
   
   steps: [

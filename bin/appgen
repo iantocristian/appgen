@@ -58,7 +58,7 @@ function loadspecfile(specfilepath,cb) {
 
 
 function cmdlinespec( argv, spec ) {
-  spec.pref = common.deepoverride(spec.pref, argv.pref || {})
+  spec.conf = common.deepoverride(spec.conf, argv.conf || {})
 } 
 
 
@@ -110,7 +110,8 @@ loadspecfile(specfilepath,function(spec){
         }
       }
     },
-    verbose:verbose
+    verbose:verbose,
+    specfile:specfilepath
   })
 
   appgen.exec()

@@ -10,15 +10,15 @@ var spec = {
   happy: {
     res: { base: 'base01',gen: 'gen01' },
 
-    pref:{ ext:'txt' },
+    conf:{ ext:'txt' },
   
     steps: [
       {name:'fork',opt:{
         forks:[
-          {name:'aa',spec:{pref:{color:'red'}}},
-          {name:'bb',spec:{pref:{color:'blue'}}}
+          {name:'aa',spec:{conf:{color:'red'}}},
+          {name:'bb',spec:{conf:{color:'blue'}}}
         ]}},
-      {name:'save',opt:{path:'#{pref.color}.#{pref.ext}',text:'fork:#{name}'}}
+      {name:'save',opt:{path:'${conf.color}.${conf.ext}',text:'fork:${name}'}}
     ]
   },
 

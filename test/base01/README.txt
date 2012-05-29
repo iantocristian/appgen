@@ -1,4 +1,4 @@
 
-Platform: #{pref.platform}
-Version: #{pref.version}
+Platform: ${conf.platform}
+Version: ${conf.version}
 
