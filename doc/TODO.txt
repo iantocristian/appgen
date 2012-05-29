@@ -1,4 +1,3 @@
-- genlog print of step needs to be standardised, esp. dynamically required steps
 
 - mini app, including ejs templating step
 - proper step tests
