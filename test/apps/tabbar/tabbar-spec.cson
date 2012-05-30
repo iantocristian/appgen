@@ -3,21 +3,20 @@
     base: "base",
     gen: "gen"
 
-  pref: {}
+  conf: {}
    
   steps: [
     { name: "fork", opts:{
       forks: [ {name:"ios"}, {name:"android"} ]
     }},
 
-    { name:'save', opts:{ path:'index.html' } },
-    { name:'save', opts:{ src:'img/*.png', path:'img/#{res.$name}' } },
-    { name:'save', opts:{ src:'css/*.css', path:'css/#{res.$name}' } },
-    { name:'save', opts:{ src:'js/*.js', path:'js/#{res.$name}' } },
+    { name:'template', path:'index.html' },
+    { name:'import', path:'img/*.png' },
+    { name:'import', path:'css/*.css', exclude:'css/style-*.css' },
+    { name:'import', path:'js/*.js' },
 
-    { name:'save', opts:{ src:'css/style-#{name}.css', path:'css/style.css' } },
-    { name:'save', opts:{ src:'img-#{name}/*.*', path:'img/#{res.$name}', required:false } },
+    { name:'template', path:'css/style-${name}.css', save:'css/style.css' },
+    { name:'import', path:'img-${name}/*.*', save:'img/${gen.resource.name}' },
   ]
 }
-
 

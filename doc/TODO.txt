@@ -1,5 +1,5 @@
+- mini app - header included/tabbar placement
 
-- mini app, including ejs templating step
 - proper step tests
 - make spec parse errors pretty
 - pref for interpolate chars
