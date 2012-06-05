@@ -11,64 +11,77 @@
   <link rel="stylesheet" href="css/jquery.mobile.structure.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="css/app-platform.css" />
 
   <script src="js/jquery.js"></script>
   <script src="js/jquery.mobile.js"></script>
   <script src="js/underscore.js"></script>
   <script src="js/backbone.js"></script>
+
+  <% if( 'ios' === name ) { %>
   <script src="js/iscroll.js"></script>
+  <% } %>
+
   <script src="js/app.js"></script>
+  <script src="js/app-platform.js"></script>
+  <script>app.boot()</script>
 </head> 
 <body> 
 
 <div id="main" data-role="page">
 
+  
+  <% if( 'ios' === name ) { %>
   <div id="header" data-role="header">
     <h1>${name} TabBar</h1>
   </div>
+  <% } %>
+
+
+
+<% function genlist(start) { %>
+        <ul data-role="listview" class="ui-listview">
+          <% for( var i = 0; i < 100; i++) { %>
+	    <li><%=i+start%></li>
+          <% } %>
+	</ul>
+<% } %>
 
   <div id="content" data-role="content">	
 
     <div id="content_one" class="content scroller">
       <div class="content-area">
-
-        <ul data-role="listview" class="ui-listview">
-	  <li>100</li>
-	  <li>101</li>
-	</ul>
-
+        <% genlist(100) %>
       </div>
     </div>
 
     <div id="content_two" class="content scroller">
       <div class="content-area">
-
-        <ul data-role="listview" class="ui-listview">
-	  <li>200</li>
-	  <li>201</li>
-	</ul>
-
+        <% genlist(200) %>
       </div>
     </div>
 
     <div id="content_three" class="content scroller">
       <div class="content-area">
+        <% genlist(300) %>
       </div>
     </div>
 
     <div id="content_four" class="content scroller">
       <div class="content-area">
+        <% genlist(400) %>
       </div>
     </div>
 
     <div id="content_five" class="content scroller">
       <div class="content-area">
+        <% genlist(500) %>
       </div>
     </div>
 
   </div>
 
-  <div id="footer" data-role="footer" class="ui-bar custom-tabbar" data-position="fixed">
+  <div id="footer" data-role="${conf.tabbar.place}" class="ui-bar custom-tabbar" data-position="fixed">
     <div data-role="navbar" class="ui-navbar">
       <ul id="tabbar" class="ui-grid custom-tabbar">
         <li><a id="tab_one"   data-icon="custom">One</a></li>
@@ -79,6 +92,8 @@
       </ul>
     </div>
   </div>
+
+
 
 </div>
 

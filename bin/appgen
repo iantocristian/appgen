@@ -47,11 +47,12 @@ function loadspecfile(specfilepath,cb) {
     var spec 
     if( specfilepath.match(/json$/ )  ) {
       spec = JSON.parse(text)
-      cb(spec)
+      cb(null.spec)
     }
     else if( specfilepath.match(/cson$/ ) ) {
       spec = CSON.parseSync(text)
-      cb(spec)
+      var err = spec instanceof Error ? spec : null
+      cb(err,spec)
     }
   }))
 }
@@ -87,9 +88,17 @@ var specfolder = fspath.dirname(specfilepath)
 // 2 = all
 var verbose = Math.min(2,Math.max(0, _.isNumber(argv.verbose) ? argv.verbose : argv.V ? 2 : argv.v ? 1 : 0 ))
 
-loadspecfile(specfilepath,function(spec){
+loadspecfile(specfilepath,function(err,spec){
+  if( err ) {
+    console.error(err)
+    process.exit(1)
+  }
 
   cmdlinespec(argv,spec)
+
+  if( 2 <= verbose ) {
+    eyes.inspect(spec)
+  }
 
   appgen = new AppGen({
     spec:spec,

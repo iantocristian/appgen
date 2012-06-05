@@ -14,9 +14,9 @@ var app = {
     four:  { index:i++ },
     five:  { index:i++ },
   },
-  platform: /Android/.test(navigator.userAgent)?'android':'ios',
   initialtab: 'one'
 }
+
 
 console.log(app)
 
@@ -61,10 +61,6 @@ bb.init = function() {
       }
 
       app.scrollheight = window.innerHeight - self.elem.header.height() - self.elem.footer.height()
-
-      if( 'android' == app.platform ) {
-        app.scrollheight += self.elem.header.height()
-      }
     },
 
     render: function() {
@@ -96,16 +92,7 @@ bb.init = function() {
 
       app.view[self.current] && app.view[self.current].render()
 
-      var content = $("#content_"+self.current)
-      if( !self.scrollers[self.current] ) {
-        self.scrollers[self.current] = new iScroll("content_"+self.current)      
-      }
-
-      content.height( app.scrollheight ) 
-
-      setTimeout( function() {
-        self.scrollers[self.current].refresh()
-      },300 )
+      self.updatescroller()
     },
 
     tabchange: function() {
@@ -189,25 +176,12 @@ bb.init = function() {
 
 
 app.boot = function() {
-  document.ontouchmove = function(e){ e.preventDefault(); }
   $( '#main' ).live( 'pagebeforecreate',function(){
-    app.boot_platform()
+    // as needed
   })
+  app.boot_platform()
 }
 
-app.boot_platform = function() {
-  if( 'android' == app.platform ) {
-    $('#header').hide()
-    $('#footer').attr({'data-role':'header'})
-    $('#content').css({'margin-top':59})
-  }
-}
-
-app.init_platform = function() {
-  if( 'android' == app.platform ) {
-    $('li span.ui-icon').css({'margin-top':-4})
-  }
-}
 
 app.start = function() {
   $("#tab_"+app.initialtab).tap()
@@ -221,9 +195,8 @@ app.erroralert = function( error ) {
 app.init = function() {
   console.log('start init')
 
-  app.init_platform()
-
   bb.init()
+  app.init_platform()
 
   app.model.state = new bb.model.State()
 
@@ -239,11 +212,13 @@ app.init = function() {
   app.view.four  = new bb.view.Four()
   app.view.five  = new bb.view.Five()
 
+
+  app.start_platform()
   app.start()
+
 
   console.log('end init')
 }
 
 
-app.boot()
 $(app.init)
