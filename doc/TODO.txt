@@ -1,8 +1,5 @@
 - appgen.exec api - proper error reporting
 
-
-- step: execute external cmd
-
 - proper step tests
 - make spec parse errors pretty
 - pref for interpolate chars
