@@ -1,4 +1,5 @@
-- mini app - run from api
+- appgen.exec api - proper error reporting
+
 
 - step: execute external cmd
 

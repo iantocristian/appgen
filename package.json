@@ -15,10 +15,13 @@
     "optimist":"*",
     "cson":"*",
     "glob":"*",
-    "ejs":"*"
+    "ejs":"*",
+    "gex":">=0.0.3"
   },
   "devDependencies": {
     "vows":"*",
-    "gex":">=0.0.3"
+    "connect":"*",
+    "express":"*",
+    "dispatch":"*"
   }
 }
