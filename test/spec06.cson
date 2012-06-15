@@ -14,7 +14,7 @@
 
   steps: [
     { name:'timerstart' }
-    { name:'copy', opt:{ from:'www/css/*.css', to:'www' } }
+    { name:'import', opt:{ from:'www/css/*.css', to:'www' } }
     { name:'template', opt:{ paths:'www/*.html' } }
     { name:'timerend' }
   ]
