@@ -10,3 +10,7 @@
 
 - custom steps load as modules relative to spec file folder
 
+- can conf refer to repeated value using "${valname}"?
+
+- keep sub structure from a certain point - from and selector
+
