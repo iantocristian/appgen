@@ -6,6 +6,7 @@
   conf: {}
    
   steps: [
+
     { name: "fork", forks: [ 
         { name:"ios", conf: {
            tabbar:{ place:'footer' }
@@ -15,7 +16,6 @@
         }}
       ]
     },
-
 
 
     { name:'import', path:'img/*.png' },

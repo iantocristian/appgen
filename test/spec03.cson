@@ -5,7 +5,7 @@
 
   conf:
     a:1
-  
+
   steps: [
     { name:'save', opts:{ path:'www/foo.txt', text:'foobar\n' } },
   ]

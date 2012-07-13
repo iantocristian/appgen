@@ -44,7 +44,7 @@
       { name:'print', msg:'inside block 2' }
     ]}
 
-    { name:'exec', cmd:'sssls -lisah'}
+    { name:'exec', cmd:'ls -lisah'}
   ]
 }
 
