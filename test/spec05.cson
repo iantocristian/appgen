@@ -1,4 +1,7 @@
 {
+
+# node ../bin/appgen --conf.block=true spec05.cson
+
   res:
     base: "base01",
     gen:  "gen01"
@@ -17,6 +20,12 @@
     { name:'print', msg:'$${conf.foo}'}
     { name:'print', msg:{a:1}}
     { name:'print', msg:'${conf.color}'}
+
+    { name:'set',   ref:'conf.red', value:'#0f0'}
+    { name:'print', msg:'red=${conf.red}'}
+
+    { name:'set',   ref:'conf.red', value:{source:'color-${conf.red}',match:'f',insert:'F'} }
+    { name:'print', msg:'red=${conf.red}'}
 
 
     { name:'print', opt:{ if:"conf.fail", msg:'FAIL' } }

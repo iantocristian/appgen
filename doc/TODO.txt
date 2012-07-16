@@ -9,5 +9,8 @@
 
 - watch trigger
 
+- example project with custom macro and Step
+
+- js code for conf
                                    
 
