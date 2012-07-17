@@ -79,7 +79,7 @@ var argv = common.optimist
 
 
 var appgen
-var specfilepath = argv._[0]
+var specfilepath = fspath.resolve( argv._[0] )
 var specfolder = fspath.dirname(specfilepath)
 
 // verbose = 0,1,2
@@ -99,6 +99,8 @@ loadspecfile(specfilepath,function(err,spec){
   if( 2 <= verbose ) {
     eyes.inspect(spec)
   }
+
+  spec.res.origin = spec.res.origin || specfolder
 
   appgen = new AppGen({
     spec:spec,

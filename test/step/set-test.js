@@ -45,7 +45,7 @@ vows.describe('SetStep').addBatch({
   },
 
   'regexp': {
-    topic: function() { execstep(this,{ref:'gen.foo',value:{source:'${gen.bar}',match:'(b)',insert:'c$1c'}},{gen:{bar:'ababa'}}) },
+    topic: function() { execstep(this,{ref:'gen.foo',value:{source:'${gen.bar}',match:'(b)',replace:'c$1c'}},{gen:{bar:'ababa'}}) },
     'callback': function( res ) {
       //console.dir(res)
       assert.equal(res.gen.foo,'acbcacbca')

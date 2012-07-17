@@ -1,0 +1,18 @@
+{
+  res:
+    base: "../base01",
+    gen: "../gen01"
+
+  conf:
+    a: 'AAA'
+
+  steps: [
+    #{ name:'import', path:'macro/import/path/**/*.*' }
+    #{ name:'import', path:'macro/import/path/*.*', save:'macro/import/save/${gen.resource.name}' }
+    #{ name:'import', from:'macro/import/path/', select:'**/*.*', to:'macro/import/select' }
+
+    { name:'import', path:'macro/import/path/**/*.*', rename:{find:'t1',replace:'r1'} }
+  ]
+}
+
+
