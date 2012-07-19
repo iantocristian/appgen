@@ -1,0 +1,56 @@
+{
+  res:
+    base: "../base01",
+    gen: "../gen01"
+
+  conf:
+    a: 'AAA'
+
+  macro:
+    foo:{steps:[
+      { name:'print', msg:'***** foo color=${arg.color}'}
+      { name:'bar', color:'light ${arg.color}' }
+    ]}
+
+    bar:{steps:[
+      { name:'print', msg:'***** bar color=${arg.color}'}
+      { name:'qaz', color:'really ${arg.color}' }
+    ]}
+
+    qaz:{steps:[
+      { name:'print', msg:'***** qaz color=${arg.color}'}
+    ]}
+  
+    blockfoo:{steps:[
+      { name:'block', steps:[
+        { name:'print', msg:'***** foo color=${arg.color}'}
+        { name:'blockbar', color:'light ${arg.color}' }
+      ]}
+    ]}
+
+    blockbar:{steps:[
+      { name:'block', steps:[
+        { name:'print', msg:'***** bar color=${arg.color}'}
+        { name:'qaz', color:'really ${arg.color}' }
+      ]}
+    ]}
+
+
+  steps: [
+    { name:'print', msg:'***** a=${conf.a}' }
+
+    { name:'foo', color:'${conf.a}' }
+
+    { name:'block', steps:[
+      { name:'foo', color:'${conf.a}' }
+    ]}
+
+    { name:'for', each:['a','b','c'], steps:[
+      { name:'foo', color:'${conf.a}' }
+    ]}
+
+    { name:'blockfoo', color:'${conf.a}' }
+  ]
+}
+
+

@@ -1,3 +1,11 @@
+- update template macro - add tests
+
+- ${} is not a great interpolate syntax in JSON - low visual diff
+
+- remove opt:{} support - move to same level as name prop?
+
+- jsonquery escape regexp syntax function needed in import macro select - implement as step
+
 - appgen.exec api - proper error reporting
 
 - proper step tests
