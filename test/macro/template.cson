@@ -1,0 +1,17 @@
+{
+  res:
+    base: "../base01",
+    gen: "../gen01"
+
+  conf:
+    a: 'AAA'
+
+  steps: [
+    { name:'template', path:'macro/template/path/**/*.*' }
+    { name:'template', path:'macro/template/path/*.*', save:'macro/template/save/${gen.resource.name}' }
+    { name:'template', from:'macro/template/path/', select:'**/*.*', to:'macro/template/select' }
+    { name:'template', path:'macro/template/path/**/*.*', rename:{find:'t1',replace:'r1'} }
+  ]
+}
+
+

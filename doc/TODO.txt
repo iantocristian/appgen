@@ -1,4 +1,7 @@
-- update template macro - add tests
+- validate output of import macro
+
+- update template macro
+- validate output of template macro
 
 - ${} is not a great interpolate syntax in JSON - low visual diff
 
