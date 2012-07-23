@@ -60,6 +60,7 @@ function loadspecfile(specfilepath,cb) {
 
 function cmdlinespec( argv, spec ) {
   spec.conf = common.deepoverride(spec.conf, argv.conf || {})
+  spec.pref = common.deepoverride(spec.pref, argv.pref || {})
 } 
 
 
@@ -93,6 +94,9 @@ loadspecfile(specfilepath,function(err,spec){
     console.error(err)
     process.exit(1)
   }
+
+  spec.conf = spec.conf || {}
+  spec.pref = spec.pref || {}
 
   cmdlinespec(argv,spec)
 
