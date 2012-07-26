@@ -1,5 +1,7 @@
 - validate output of import macro
 
+- semantics of macro property interpolation needs to be explained - "not required" means marker syntax remains for macro steps
+
 - update template macro
 - validate output of template macro
 
