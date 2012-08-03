@@ -1,5 +1,8 @@
 - validate output of import macro
 
+- handlebars.js support
+
+
 - semantics of macro property interpolation needs to be explained - "not required" means marker syntax remains for macro steps
 
 - update template macro

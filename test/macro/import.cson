@@ -13,8 +13,11 @@
     { name:'import', path:'macro/import/path/*.*', save:'macro/import/save/${gen.resource.name}' }
     { name:'verify', filemap:{ 'macro/import':{ save: { 't1.txt':'t1', 't2.txt':'t2' } } } }
 
-    #{ name:'import', from:'macro/import/path/', select:'**/*.*', to:'macro/import/select' }
-    #{ name:'import', path:'macro/import/path/**/*.*', rename:{find:'t1',replace:'r1'} }
+    { name:'import', from:'macro/import/path/', select:'**/*.*', to:'macro/import/select' }
+    { name:'verify', filemap:{ 'macro/import':{ select: { 't1.txt':'t1', 't2.txt':'t2', f1:{'t1f1.txt':'t1f1'} } } } }
+
+    { name:'import', path:'macro/import/path/**/*.*', rename:{find:'t1',replace:'r1'} }
+    { name:'verify', filemap:{ 'macro/import':{ path: { 'r1.txt':'t1' } } } }
   ]
 }
 
