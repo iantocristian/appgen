@@ -47,7 +47,7 @@ function loadspecfile(specfilepath,cb) {
     var spec 
     if( specfilepath.match(/json$/ )  ) {
       spec = JSON.parse(text)
-      cb(null.spec)
+      cb(null,spec)
     }
     else if( specfilepath.match(/cson$/ ) ) {
       spec = CSON.parseSync(text)

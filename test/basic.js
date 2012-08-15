@@ -72,5 +72,5 @@ vows.describe('basic').addBatch({
     }
   }
 
-}).run()
+}).export(module)
 
