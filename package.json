@@ -1,13 +1,19 @@
 {
-  "author": "",
   "name": "appgen",
-  "version": "0.0.0",
+  "description": "A toolkit for building multiple versions of the same app.",
+  "keywords": ["app","generate","build","html5","generative","programming"],
+  "homepage": "https://github.com/nearform/appgen",
+
+  "author": "Richard Rodger",
+
+  "version": "0.1.0",
   "main":"lib/appgen",
+
   "repository": {
-    "url": ""
+    "url": "https://github.com/nearform/appgen.git"
   },
   "engines": {
-    "node": "~0.6.15"
+    "node": ">=0.6"
   },
   "dependencies": {
     "eyes":"*",
@@ -23,5 +29,43 @@
     "connect":"*",
     "express":"*",
     "dispatch":"*"
-  }
+  },
+
+  "bin":"./bin/appgen",
+
+  "files": [
+    "package.json",
+    "LICENSE.txt",
+    "README.md",
+
+    "bin/appgen",
+
+    "lib/appgen.js",
+    "lib/common.js",
+    "lib/context.js",
+    "lib/genlog.js",
+    "lib/jsonquery.js",
+    "lib/resman.js",
+    "lib/stepman.js",
+
+    "lib/step/Block.js",
+    "lib/step/DatePoint.js",
+    "lib/step/Ejs.js",
+    "lib/step/EndFork.js",
+    "lib/step/Error.js",
+    "lib/step/Exec.js",
+    "lib/step/Expect.js",
+    "lib/step/Find.js",
+    "lib/step/For.js",
+    "lib/step/Fork.js",
+    "lib/step/Insert.js",
+    "lib/step/Iterate.js",
+    "lib/step/Load.js",
+    "lib/step/Macro.js",
+    "lib/step/Print.js",
+    "lib/step/Save.js",
+    "lib/step/Set.js",
+    "lib/step/Step.js",
+    "lib/step/Verify.js"
+  ]
 }
