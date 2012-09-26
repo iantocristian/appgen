@@ -94,7 +94,7 @@ save: {"path":"android.css"}
 save: {"path":"index.html"}
 ```
 
-By default the <i>_gen_</i> folder contains the output versions, each
+By default the <i>_gen</i> folder contains the output versions, each
 in a separate folder. In this case, _main-ios_, and
 _main-android_. All these things are configurable.
 
@@ -121,6 +121,10 @@ what _appgen_ is designed for.
 To install as a development tool:
 
     npm install -g appgen
+
+And then from the comman line:
+
+    $ appgen path/to/my-spec.js
 
 Or, if you are using it within a service:
 

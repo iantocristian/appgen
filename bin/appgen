@@ -104,6 +104,8 @@ loadspecfile(specfilepath,function(err,spec){
     process.exit(1)
   }
 
+  spec.res  = spec.res || {}
+
   spec.conf = spec.conf || {}
   spec.pref = spec.pref || {}
 
