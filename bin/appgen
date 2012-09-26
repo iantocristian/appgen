@@ -54,6 +54,15 @@ function loadspecfile(specfilepath,cb) {
       var err = spec instanceof Error ? spec : null
       cb(err,spec)
     }
+    else if( specfilepath.match(/js$/ ) ) {
+      try {
+        spec = require(specfilepath)
+        cb(null,spec)
+      }
+      catch( e ) {
+        cb(e)
+      }
+    }
   }))
 }
 
@@ -66,12 +75,12 @@ function cmdlinespec( argv, spec ) {
 
 
 var argv = common.optimist
-  .usage("Usage: appgen specfile.json")
+  .usage("Usage: appgen specfile.[js|json|cson]")
   .boolean('v')
   .boolean('V')
   .check(function(argv){
     if( undefined == argv._[0] )         throw 'Error: no specfile.json';
-    if( !/\.[cj]son$/.test(argv._[0]) )  throw 'Error: specfile must have .json or .cson suffix';
+    if( !/\.[cj]s(on)?$/.test(argv._[0]) )  throw 'Error: specfile must suffix .js, .json or .cson';
     return true
   })
   .argv
