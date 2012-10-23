@@ -6,7 +6,7 @@
 
   "author": "Richard Rodger",
 
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main":"lib/appgen",
 
   "repository": {
@@ -39,6 +39,10 @@
     "README.md",
 
     "bin/appgen",
+    "archive-ios.sh",
+    "build-android.sh",
+    "build-ios.sh",
+    "sign-android.sh",
 
     "lib/appgen.js",
     "lib/common.js",
